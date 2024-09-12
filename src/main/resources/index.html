@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tic-Tac-Toe</title>
+</head>
+<body>
+<h1>Tic-Tac-Toe Game</h1>
+<table border="1">
+    <tr th:each="row, rowStat : ${board}">
+        <td th:each="cell : ${row}" th:text="${cell}">-</td>
+    </tr>
+</table>
+<form action="/game/move" method="post">
+    <label for="row">Row:</label>
+    <input type="text" id="row" name="row">
+    <label for="col">Col:</label>
+    <input type="text" id="col" name="col">
+    <button type="submit">Make Move</button>
+</form>
+</body>
+</html>
